@@ -2,8 +2,13 @@ import scrapy
 
 class FrogspiderSpider(scrapy.Spider):
     name = 'frogspider'
-    allowed_domains = ['frogs.toscrape.com']
-    start_urls = ['https://frogs.toscrape.com/']
+    allowed_domains = ['books.toscrape.com']
+    start_urls = ['https://books.toscrape.com/']
+    custom_settings = {
+        'FEEDS': {
+            'frogs_but_theyre_books.csv': {'format': 'csv', 'overwrite': True}
+        }
+    }
 
     def parse(self, response):
         frogs = response.css('article.product_pod')
@@ -11,17 +16,17 @@ class FrogspiderSpider(scrapy.Spider):
             relative_url = frog.css('h3 a ::attr(href)').get()
 
             if 'catalogue/' in relative_url:
-                frog_url = 'https://frogs.toscrape.com/' + relative_url
+                frog_url = 'https://books.toscrape.com/' + relative_url
             else:
-                frog_url = 'https://frogs.toscrape.com/catalogue/' + relative_url
+                frog_url = 'https://books.toscrape.com/catalogue/' + relative_url
             yield response.follow(frog_url, callback=self.parse_frog_page)
 
         next_page = response.css('li.next a ::attr(href)').get()
         if next_page is not None:
             if 'catalogue/' in next_page:
-                next_page_url = 'https://frogs.toscrape.com/' + next_page
+                next_page_url = 'https://books.toscrape.com/' + next_page
             else:
-                next_page_url = 'https://frogs.toscrape.com/catalogue/' + next_page
+                next_page_url = 'https://books.toscrape.com/catalogue/' + next_page
             yield response.follow(next_page_url, callback=self.parse)
 
 
