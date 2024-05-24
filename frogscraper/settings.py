@@ -1,4 +1,4 @@
-# Scrapy settings for prototypescraper project
+# Scrapy settings for frogscraper project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -7,14 +7,14 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = "prototypescraper"
+BOT_NAME = 'frogscraper'
 
-SPIDER_MODULES = ["prototypescraper.spiders"]
-NEWSPIDER_MODULE = "prototypescraper.spiders"
+SPIDER_MODULES = ['frogscraper.spiders']
+NEWSPIDER_MODULE = 'frogscraper.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = "prototypescraper (+http://www.yourdomain.com)"
+#USER_AGENT = 'frogscraper (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
@@ -38,32 +38,32 @@ ROBOTSTXT_OBEY = True
 
 # Override the default request headers:
 #DEFAULT_REQUEST_HEADERS = {
-#    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-#    "Accept-Language": "en",
+#   'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+#   'Accept-Language': 'en',
 #}
 
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
-SPIDER_MIDDLEWARES = {
-    "prototypescraper.middlewares.PrototypescraperSpiderMiddleware": 543,
-}
+#SPIDER_MIDDLEWARES = {
+#    'frogscraper.middlewares.FrogscraperSpiderMiddleware': 543,
+#}
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
-DOWNLOADER_MIDDLEWARES = {
-    "prototypescraper.middlewares.PrototypescraperDownloaderMiddleware": 543,
-}
+#DOWNLOADER_MIDDLEWARES = {
+#    'frogscraper.middlewares.FrogscraperDownloaderMiddleware': 543,
+#}
 
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html
 #EXTENSIONS = {
-#    "scrapy.extensions.telnet.TelnetConsole": None,
+#    'scrapy.extensions.telnet.TelnetConsole': None,
 #}
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 #ITEM_PIPELINES = {
-#    "prototypescraper.pipelines.PrototypescraperPipeline": 300,
+#    'frogscraper.pipelines.FrogscraperPipeline': 300,
 #}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
@@ -83,16 +83,6 @@ DOWNLOADER_MIDDLEWARES = {
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html#httpcache-middleware-settings
 #HTTPCACHE_ENABLED = True
 #HTTPCACHE_EXPIRATION_SECS = 0
-#HTTPCACHE_DIR = "httpcache"
+#HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
-#HTTPCACHE_STORAGE = "scrapy.extensions.httpcache.FilesystemCacheStorage"
-
-PROXY_USER = 'username'
-PROXY_PASSWORD = 'p'
-PROXY_ENDPOINT = 'proxy.proxyprovider.com'
-PROXY_PORT = '8000'
-
-# Set settings whose default value is deprecated to a future-proof value
-REQUEST_FINGERPRINTER_IMPLEMENTATION = "2.7"
-TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
-FEED_EXPORT_ENCODING = "utf-8"
+#HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
